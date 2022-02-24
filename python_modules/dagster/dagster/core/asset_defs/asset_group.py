@@ -175,8 +175,14 @@ class AssetGroup(
             # subset selected
             else:
                 if asset.can_subset:
-                    included_assets.add(asset.subset(selected_subset))
-                    # excluded_assets.add(asset.subset(asset.asset_keys - selected_subset))
+                    print("DOING SUBSET")
+                    x = asset.subset(selected_subset)
+                    print("...")
+                    print(x)
+                    print(x._op)
+                    print(x._op.output_defs)
+                    print("...")
+                    included_assets.add(x)
                 else:
                     # TODO: warn
                     included_assets.add(asset)
